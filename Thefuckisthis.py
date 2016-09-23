@@ -17,6 +17,8 @@ ball.scale = 0.1
 # custom attributes
 ball.dir = 1
 ball.go = True
+def reverse(b):
+    b.dir *= -1
 # Set up function for handling screen refresh
 def step():
     if ball.go:
@@ -25,4 +27,4 @@ def step():
             ball.x -= ball.dir
             reverse(ball)
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
-myapp.run()
+myapp.run(step)
