@@ -26,5 +26,26 @@ def step():
         if ball.x + ball.width > SCREEN_WIDTH or ball.x < 0:
             ball.x -= ball.dir
             reverse(ball)
+# Handle the space key
+def spaceKey(event):
+    ball.go = not ball.go
+
+# Handle the "reverse" key
+def reverseKey(event):
+    reverse(ball)
+    pop.play()
+
+# Handle the mouse click
+def mouseClick(event):
+    ball.x = event.x
+    ball.y = event.y
+    pew1.play()
+pew1_asset = SoundAsset("sounds/pew1.mp3")
+pew1 = Sound(pew1_asset)
+pop_asset = SoundAsset("sounds/reappear.mp3")
+pop = Sound(pop_asset)    
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
+myapp.listenKeyEvent('keydown', 'space', spaceKey)
+myapp.listenKeyEvent('keydown', 'r', reverseKey)
+myapp.listenMouseEvent('click', mouseClick)
 myapp.run(step)
