@@ -8,6 +8,7 @@ black = Color(0, 1)
 noline = LineStyle(0, black)
 bg_asset = RectangleAsset(SCREEN_WIDTH, SCREEN_HEIGHT, noline, black)
 bg = Sprite(bg_asset, (0,0))
+
 class SpaceShip(Sprite):
     """
     Animated space ship
@@ -30,7 +31,7 @@ class SpaceShip(Sprite):
         self.x += self.vx
         self.y += self.vy
         self.rotation += self.vr
-    if self.thrust == 1:
+        if self.thrust == 1:
             self.setImage(self.thrustframe)
             self.thrustframe += 1
             if self.thrustframe == 4:
